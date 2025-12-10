@@ -14,7 +14,7 @@ export function WhyUsSection() {
             className={`relative aspect-[4/5] lg:aspect-auto bg-charcoal rounded-lg overflow-hidden group animate-initial ${isVisible ? "animate-slide-left" : ""}`}
           >
             <Image
-              src="/images/barbershop-detail.png"
+              src="/images/unnamed.jpg"
               alt="Ems Barbershop Interior Detail - Luxurious leather chair and gold accents"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
