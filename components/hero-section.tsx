@@ -9,7 +9,7 @@ export function HeroSection() {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 })
 
   return (
-    <section id="home" className="min-h-[100dvh] flex flex-col pt-20 relative overflow-hidden" ref={ref}>
+    <section id="home" className="min-h-[100svh] flex flex-col pt-20 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/barbershop-interior.jpg"
