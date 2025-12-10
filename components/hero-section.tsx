@@ -68,6 +68,7 @@ export function HeroSection() {
               variant="outline"
               size="lg"
               className="border-gold text-white hover:bg-gold/10 hover:text-gold px-10 py-7 text-sm font-semibold tracking-widest bg-black/30 backdrop-blur-sm transition-all duration-300 hover:border-gold-light"
+              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
             >
               LEISTUNGEN ANSEHEN
             </Button>
