@@ -1,10 +1,11 @@
 "use client"
 
+import Image from "next/image"
 import { ImageIcon } from "lucide-react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 
 const galleryItems = [
-  { id: 1, label: "Klassischer Fade" },
+  { id: 1, label: "Klassischer Fade", image: "/images/2025-01-03.jpg" },
   { id: 2, label: "Bart Trimm" },
   { id: 3, label: "Moderner Style" },
   { id: 4, label: "Heißes Handtuch" },
@@ -40,13 +41,27 @@ export function GallerySection() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="aspect-[4/5] bg-charcoal rounded-sm overflow-hidden transition-all duration-500 ease-out border-2 border-transparent group-hover:border-gold group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] relative">
-                <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/50 transition-all duration-500 group-hover:scale-110">
-                  <ImageIcon className="h-12 w-12 mb-3 transition-transform duration-500 group-hover:scale-110" />
-                  <span className="text-sm uppercase tracking-wider group-hover:text-gold transition-colors duration-300">
-                    {item.label}
-                  </span>
-                </div>
+                {item.image ? (
+                  <Image
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.label}
+                    fill
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/50 transition-all duration-500 group-hover:scale-110">
+                    <ImageIcon className="h-12 w-12 mb-3 transition-transform duration-500 group-hover:scale-110" />
+                    <span className="text-sm uppercase tracking-wider group-hover:text-gold transition-colors duration-300">
+                      {item.label}
+                    </span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {item.image && (
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <span className="text-white text-sm font-bold uppercase tracking-wider">{item.label}</span>
+                  </div>
+                )}
               </div>
             </div>
           ))}
